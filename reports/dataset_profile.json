@@ -1,0 +1,47 @@
+{
+  "rows": 30000,
+  "columns": [
+    "feedback_id",
+    "feedback_text",
+    "sentiment",
+    "complaint_type",
+    "priority",
+    "channel",
+    "customer_type",
+    "order_value",
+    "days_as_customer"
+  ],
+  "missing_values": {
+    "feedback_id": 0,
+    "feedback_text": 0,
+    "sentiment": 0,
+    "complaint_type": 0,
+    "priority": 0,
+    "channel": 0,
+    "customer_type": 0,
+    "order_value": 0,
+    "days_as_customer": 0
+  },
+  "target_distributions": {
+    "sentiment": {
+      "Negative": 12571,
+      "Positive": 10916,
+      "Neutral": 6513
+    },
+    "complaint_type": {
+      "Product Quality": 5964,
+      "Delivery": 5401,
+      "Technical Issue": 4273,
+      "Customer Service": 4190,
+      "Returns & Refunds": 3078,
+      "Billing": 2939,
+      "Pricing": 2079,
+      "Packaging": 2076
+    },
+    "priority": {
+      "Low": 10200,
+      "Medium": 9900,
+      "High": 9900
+    }
+  }
+}
