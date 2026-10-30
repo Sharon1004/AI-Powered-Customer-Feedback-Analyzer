@@ -1,41 +1,190 @@
-# AI-Powered Customer Feedback Analyzer
+# 💬 AI-Powered Customer Feedback Analyzer
 
-A compact ML + NLP + ANN application that analyzes one customer feedback record and predicts:
-- Sentiment: Positive / Neutral / Negative
-- Complaint type: feedback category
-- Priority: Low / Medium / High
+An AI-powered application that analyzes customer feedback and predicts **Sentiment, Complaint Category, and Priority** using Natural Language Processing (NLP), Machine Learning, and Artificial Neural Networks (ANN).
 
-## Dataset
-The supplied dataset contains 30,000 records and the columns `feedback_id`, `feedback_text`, `sentiment`, `complaint_type`, `priority`, `channel`, `customer_type`, `order_value`, and `days_as_customer`. The ID is not used as a predictive feature.
+## 🚀 Live Demo
 
-## Methods
-- Sentiment: TF-IDF (unigrams + bigrams) + Logistic Regression
-- Complaint type: TF-IDF (unigrams + bigrams) + Logistic Regression
-- Priority: Keras feed-forward ANN using TF-IDF text features plus customer/order metadata
-- Evaluation: stratified 80/20 train/test split, accuracy, weighted precision, recall, F1, and classification reports
+**Try the application here:**
 
-## Setup
-Use Python 3.11.
+[Open AI-Powered Customer Feedback Analyzer](https://ai-powered-customer-feedback-analyzer.streamlit.app/)
+
+## 📌 Project Overview
+
+Understanding customer feedback is important for improving products, services, and customer satisfaction.
+
+This project analyzes customer feedback and automatically predicts:
+
+- **Sentiment Analysis:** Positive, Negative, or Neutral.
+- **Complaint Classification:** Identifies the type of complaint.
+- **Priority Prediction:** Classifies feedback as Low, Medium, or High priority.
+
+The application provides an interactive Streamlit interface where users can enter customer feedback and receive predictions.
+
+## ✨ Features
+
+- Customer feedback analysis.
+- Sentiment classification.
+- Automatic complaint category detection.
+- Priority prediction using an Artificial Neural Network.
+- TF-IDF text feature extraction.
+- Machine Learning classification using Logistic Regression.
+- Model evaluation using accuracy, precision, recall, and F1-score.
+- Confusion matrix visualizations.
+- Interactive Streamlit web application.
+
+## 🛠️ Technologies Used
+
+| Technology | Purpose |
+|---|---|
+| Python | Programming language |
+| Pandas | Data manipulation |
+| NumPy | Numerical operations |
+| Scikit-learn | Machine Learning and NLP |
+| TF-IDF | Text feature extraction |
+| Logistic Regression | Sentiment and complaint classification |
+| TensorFlow / Keras | Artificial Neural Network |
+| Matplotlib | Data visualization |
+| Streamlit | Web application |
+
+## 🧠 Machine Learning Approach
+
+### 1. Sentiment Analysis
+- Text preprocessing and cleaning.
+- TF-IDF vectorization.
+- Logistic Regression classification.
+- Predicts Positive, Negative, or Neutral sentiment.
+
+### 2. Complaint Classification
+- TF-IDF feature extraction.
+- Logistic Regression classification.
+- Predicts the complaint category.
+
+### 3. Priority Prediction
+- TF-IDF text features.
+- Customer metadata preprocessing.
+- One-hot encoding for categorical features.
+- Standard scaling for numerical features.
+- Artificial Neural Network built using TensorFlow/Keras.
+- Predicts Low, Medium, or High priority.
+
+## 📂 Project Structure
+
+```text
+AI-Powered-Customer-Feedback-Analyzer/
+│
+├── app.py
+├── train_models.py
+├── requirements.txt
+├── README.md
+│
+├── data/
+│   └── customer_feedback.csv
+│
+├── models/
+│   ├── sentiment_pipeline.pkl
+│   ├── complaint_model.pkl
+│   ├── priority_ann.keras
+│   ├── priority_vectorizer.pkl
+│   ├── priority_label_encoder.pkl
+│   └── priority_preprocessor.pkl
+│
+├── notebooks/
+│   └── project_workflow.ipynb
+│
+└── reports/
+    ├── evaluation_metrics.json
+    ├── evaluation_report.md
+    ├── sentiment_confusion_matrix.png
+    ├── complaint_type_confusion_matrix.png
+    └── priority_confusion_matrix.png
+```
+
+## ⚙️ Installation and Setup
+
+### 1. Clone the repository
+
+```bash
+git clone https://github.com/Sharon1004/AI-Powered-Customer-Feedback-Analyzer.git
+```
+
+### 2. Navigate to the project directory
+
+```bash
+cd AI-Powered-Customer-Feedback-Analyzer
+```
+
+### 3. Create a virtual environment
 
 ```bash
 python -m venv venv
-# Windows:
+```
+
+### 4. Activate the virtual environment
+
+Windows:
+
+```bash
 venv\Scripts\activate
-# macOS/Linux:
-source venv/bin/activate
-python -m pip install --upgrade pip
+```
+
+### 5. Install dependencies
+
+```bash
 pip install -r requirements.txt
+```
+
+### 6. Train the models
+
+```bash
 python train_models.py
+```
+
+This trains the Machine Learning and ANN models and saves the trained model files inside the `models/` directory.
+
+### 7. Run the Streamlit application
+
+```bash
 streamlit run app.py
 ```
 
-The training script creates the serialized models in `models/` and the evaluation report in `reports/`.
+The application will open in your browser.
 
-## Deployment
-Deploy `app.py` from this repository using Streamlit Community Cloud with Python 3.11. Commit the generated `models/` files so the hosted app can load them. Model files are generated by `train_models.py`; they are not included until training has completed.
+## 📊 Model Evaluation
 
-## ANN explanation
-The ANN has an input layer matching the combined TF-IDF and metadata feature vector, two hidden Dense layers with ReLU activation and dropout, and a softmax output layer for the three priority classes. During forward propagation, features pass through the layers to produce class probabilities. Sparse categorical cross-entropy measures prediction error; Adam updates weights through backpropagation. Dropout helps reduce overfitting.
+The models are evaluated using:
 
-## Limitations
-Predictions are estimates learned from this dataset, not guaranteed business decisions. Check class-level metrics and inspect possible dataset/label patterns before real-world use.
+- Accuracy
+- Precision
+- Recall
+- F1-score
+- Confusion Matrix
+
+Evaluation results and confusion matrix visualizations are saved in the `reports/` directory after training.
+
+## 🌐 Deployment
+
+The application is deployed using **Streamlit Community Cloud**.
+
+**Live Application:** [AI-Powered Customer Feedback Analyzer](https://ai-powered-customer-feedback-analyzer.streamlit.app/)
+
+## 🎯 Learning Outcomes
+
+Through this project, I gained practical experience in:
+
+- Natural Language Processing.
+- Text preprocessing and TF-IDF vectorization.
+- Traditional Machine Learning classification.
+- Artificial Neural Networks using TensorFlow/Keras.
+- Model evaluation and performance analysis.
+- Building interactive applications using Streamlit.
+- Deploying Machine Learning applications.
+
+## 👩‍💻 Author
+
+**Sharon**
+
+GitHub: [Sharon1004](https://github.com/Sharon1004)
+
+---
+
+⭐ If you find this project interesting, consider giving it a star!
